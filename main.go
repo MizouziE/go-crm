@@ -5,6 +5,7 @@ import (
 
 	"github.com/gofiber/fiber"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/mizouzie/crm/database"
 	"github.com/mizouzie/crm/lead"
 )
