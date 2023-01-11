@@ -4,10 +4,10 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/mizouzie/crm/database"
 	"github.com/mizouzie/crm/lead"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -19,7 +19,7 @@ func setupRoutes(app *fiber.App) {
 
 func initDatabase() {
 	var err error
-	database.DBConn, err = gorm.Open("mysql", "leads.db")
+	database.DBConn, err = gorm.Open(mysql.Open("developer:developer@/developer"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect to database")
 	}
@@ -33,5 +33,5 @@ func main() {
 	initDatabase()
 	setupRoutes(app)
 	app.Listen(8000)
-	defer database.DBConn.Close()
+	// defer database.DBConn.
 }

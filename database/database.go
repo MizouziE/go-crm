@@ -1,8 +1,8 @@
 package database
 
 import (
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
+	_ "gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 var (

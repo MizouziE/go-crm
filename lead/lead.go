@@ -2,9 +2,9 @@ package lead
 
 import (
 	"github.com/gofiber/fiber"
-	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/mizouzie/crm/database"
+	_ "gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 type Lead struct {
